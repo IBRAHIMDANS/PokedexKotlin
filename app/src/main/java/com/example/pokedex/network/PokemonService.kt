@@ -6,9 +6,9 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 interface PokemonService {
-    @GET("/pokemon-species/")
+    @GET("pokemon-species/")
     suspend fun getAll(): Response<PokemonInfo>
 
-    @GET("/pokemon/{id}")
+    @GET("pokemon/{id}")
     suspend fun getById(@Path("id") id:String? ): Response<PokemonInfo>
 }
