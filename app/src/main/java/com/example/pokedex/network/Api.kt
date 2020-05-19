@@ -10,7 +10,7 @@ object Api {
 
     val pokemonService: PokemonService by lazy { retrofit.create(PokemonService::class.java) }
 
-    private const val BASE_URL = "https://pokeapi.co/api/v2"
+    private const val BASE_URL = "https://pokeapi.co/api/v2/"
     private val okHttpClient by lazy {
         OkHttpClient.Builder()
             .addInterceptor { chain ->
