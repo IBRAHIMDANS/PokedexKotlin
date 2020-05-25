@@ -38,6 +38,26 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../ToDoBenjaminBenoit/app/src/main/java/com/benben/todo/task/TaskActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ToDoBenjaminBenoit/app/src/main/java/com/benben/todo/task/TasksRepository.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ToDoBenjaminBenoit/app/src/main/java/com/benben/todo/tasklist/TaskListFragment.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/../ToDoBenjaminBenoit/app/src/main/java/com/benben/todo/tasklist/TaskListViewModel.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
       </map>
     </option>
   </component>

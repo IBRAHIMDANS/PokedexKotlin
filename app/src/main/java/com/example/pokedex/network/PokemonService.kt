@@ -1,7 +1,7 @@
 package com.example.pokedex.network
 
-import com.example.pokedex.PokemonInfo
-import com.example.pokedex.PokemonInfo
+import com.example.pokedex.pokemon.PokemonInfo
+import com.example.pokedex.pokemon.PokemonSpecies
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path

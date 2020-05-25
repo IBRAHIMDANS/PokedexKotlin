@@ -1,21 +1,23 @@
-package com.example.pokedex
+package com.example.pokedex.pokemon
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.pokedex.pokemon.PokemonInfo
+import com.example.pokedex.pokemon.PokemonRepository
 import kotlinx.coroutines.launch
 
 class PokemonViewModel : ViewModel() {
-    private val pokemonInfoRepository: PokemonInfoRepository = PokemonInfoRepository()
+   // private val pokemonRepository = PokemonRepository()
     private val _pokemonInfo = MutableLiveData<List<PokemonInfo>>()
     public val pokemonInfo: LiveData<List<PokemonInfo>> = _pokemonInfo
 
-    fun getPokemon(pokemonInfo: PokemonInfo) {
+   /* fun getPokemon(pokemonInfo: PokemonInfo) {
         viewModelScope.launch {
-            val getPokemon = pokemonInfoRepository.getPokemonList() ?: return@launch
+            val getPokemon = pokemonRepository.getPokemonList() ?: return@launch
             _pokemonInfo.value = getPokemon
         }
-    }
+    }*/
 
 }

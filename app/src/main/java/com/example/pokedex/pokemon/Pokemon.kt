@@ -1,4 +1,4 @@
-package com.example.pokedex
+package com.example.pokedex.pokemon
 
 import android.os.Parcelable
 import com.squareup.moshi.Json
@@ -21,7 +21,7 @@ data class PokemonInfo(
 
 data class PokemonSpecies(
     @field:Json(name = "name")
-    val name: String,
+    val name: String?,
     @field:Json(name = "url")
-    val url: String
+    val url: String?
 )
