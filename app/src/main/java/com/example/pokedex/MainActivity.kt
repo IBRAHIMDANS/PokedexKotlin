@@ -12,7 +12,7 @@ import java.io.Serializable
 
 class MainActivity : AppCompatActivity() {
 
-    private val userWebService = Api.pokemonService
+    private val pokemonWebService = Api.pokemonService
 
     //Liste des pokemons
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,15 +21,13 @@ class MainActivity : AppCompatActivity() {
         val glide = Glide.with(this)
         lifecycleScope.launch {
             val pokemonInfo = getInfo()
-            name.setText(pokemonInfo?.name)
         }
     }
 
 
-    suspend fun getInfo(): PokemonInfo? {
-        val tasksResponse = userWebService.getById("1")
+    suspend fun getInfo(): List<PokemonInfo?>? {
+        val tasksResponse = pokemonWebService.getAll()
         return if (tasksResponse.isSuccessful) {
-            name.setText(tasksResponse.body()!!.name)
             tasksResponse.body()
         } else null
     }

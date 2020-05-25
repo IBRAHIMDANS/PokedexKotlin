@@ -8,7 +8,9 @@ import java.io.Serializable
 @Parcelize
 data class PokemonInfo(
     @field:Json(name = "id")
-    val id: String,
+    val id: String?,
     @field:Json(name = "name")
-    val name: String
-): Serializable, Parcelable
+    val name: String,
+    @field:Json(name = "url")
+    val url: String?
+) : Serializable, Parcelable
