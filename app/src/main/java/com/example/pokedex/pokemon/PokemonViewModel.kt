@@ -9,8 +9,8 @@ import kotlinx.coroutines.launch
 class PokemonViewModel : ViewModel() {
     private val pokemonRepository = PokemonRepository()
     private val _pokemonInfo = MutableLiveData<PokemonInfo>()
-    private val _pokemonList = MutableLiveData<List<PokemonInfo>>()
-    public val pokemonList: LiveData<List<PokemonInfo>> = _pokemonList
+    private val _pokemonList = MutableLiveData<List<PokemonSpecies>>()
+    public val pokemonList: LiveData<List<PokemonSpecies>> = _pokemonList
 
     private fun getMutableList() = _pokemonList.value.orEmpty().toMutableList()
 

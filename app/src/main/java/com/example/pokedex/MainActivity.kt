@@ -22,16 +22,25 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pokemons_list)
-        val glide = Glide.with(this)
+        /*val glide = Glide.with(this)
         lifecycleScope.launch {
             val pokemonInfo = getInfo()
-        }
+        }*/
     }
 
-    suspend fun getInfo(): List<PokemonSpecies>? {
+    override fun onResume() {
+        super.onResume()
+        val glide = Glide.with(this)
+        lifecycleScope.launch {
+            val userInfo = Api.pokemonService.getAll().body()!!
+        }
+        viewModelTask.loadPokemons()
+    }
+
+    /*suspend fun getInfo(): List<PokemonSpecies>? {
         val tasksResponse = pokemonWebService.getAll()
         return if (tasksResponse.isSuccessful) {
             tasksResponse.body()
         } else null
-    }
+    }*/
 }
