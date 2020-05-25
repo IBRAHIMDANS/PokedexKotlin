@@ -8,7 +8,22 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/../AboutMe/app/src/main/java/com/android/example/aboutme/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/.gitignore">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/pokedex/MainActivity.kt">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/app/src/main/java/com/example/pokedex/PokemonInfo.kt">
           <value>
             <set />
           </value>

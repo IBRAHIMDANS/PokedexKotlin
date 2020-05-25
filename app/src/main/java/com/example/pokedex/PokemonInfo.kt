@@ -11,6 +11,17 @@ data class PokemonInfo(
     val id: String?,
     @field:Json(name = "name")
     val name: String,
-    @field:Json(name = "url")
-    val url: String?
+
+    @field:Json(name = "weight")
+    val weight: Int,
+
+    @field:Json(name = "height")
+    val height: Int
 ) : Serializable, Parcelable
+
+data class PokemonSpecies(
+    @field:Json(name = "name")
+    val name: String,
+    @field:Json(name = "url")
+    val url: String
+)
