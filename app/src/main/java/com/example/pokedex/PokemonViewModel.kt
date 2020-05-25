@@ -10,6 +10,19 @@ class PokemonViewModel : ViewModel() {
     private val pokemonInfoRepository: PokemonInfoRepository = PokemonInfoRepository()
     private val _pokemonInfo = MutableLiveData<List<PokemonInfo>>()
     public val pokemonInfo: LiveData<List<PokemonInfo>> = _pokemonInfo
+    private val _pokemonList = MutableLiveData<List<PokemonInfo>>()
+
+    private fun getMutableList() = _pokemonList.value.orEmpty().toMutableList()
+
+    fun loadPokemons() {
+        viewModelScope.launch {
+            val newList = pokemonInfoRepository.getPokemonList()
+            _pokemonList.value = getMutableList().apply {
+                clear()
+                newList?.let { addAll(it) }
+            }
+        }
+    }
 
     fun getPokemon(pokemonInfo: PokemonInfo) {
         viewModelScope.launch {
