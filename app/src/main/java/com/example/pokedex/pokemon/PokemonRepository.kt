@@ -1,7 +1,6 @@
 package com.example.pokedex.pokemon
 
 import com.example.pokedex.network.Api
-import com.example.pokedex.pokemon.PokemonSpecies
 
 class PokemonRepository {
     private val pokemonService = Api.pokemonService
@@ -9,7 +8,16 @@ class PokemonRepository {
     suspend fun getPokemonList(): List<PokemonSpecies>? {
         val pokemonResponse = pokemonService.getAll()
         if (pokemonResponse.isSuccessful) {
-            return pokemonResponse.body() as List<PokemonSpecies>
+            return pokemonResponse.body()
+        }
+        return null
+    }
+
+
+    suspend fun getPokemonInfo(id: String): PokemonInfo? {
+        val usersResponse = pokemonService.getById(id)
+        if (usersResponse.isSuccessful) {
+            return usersResponse.body()
         }
         return null
     }
