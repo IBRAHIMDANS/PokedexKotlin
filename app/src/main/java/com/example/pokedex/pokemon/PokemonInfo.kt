@@ -24,7 +24,7 @@ data class PokemonSpecies(
     @field:Json(name = "name")
     val name: String,
     @field:Json(name = "url")
-    val url: String
+    val url: String,
     @field:Json(name = "image")
     val image: String
 //https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/{id}.png
@@ -38,3 +38,5 @@ data class PokemonResponse<T>(
     @field:Json(name = "results")
     val results: List<T>
 )
+
+data class PokeListResponse(@Json(name = "results") val results : List<PokemonSpecies>)

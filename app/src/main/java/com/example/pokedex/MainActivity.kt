@@ -33,13 +33,13 @@ class MainActivity : AppCompatActivity() {
         lifecycleScope.launch {
             val userInfo = Api.pokemonService.getAll().body()!!
         }
-        viewModelTask.loadPokemons()
+        viewModelTask.loadAllPokemons()
     }
 
-    suspend fun getInfo(): List<PokemonSpecies>? {
+/*    suspend fun getInfo(): List<PokemonSpecies>? {
         val tasksResponse = pokemonWebService.getAll()
         return if (tasksResponse.isSuccessful) {
             tasksResponse.body()
         } else null
-    }
+    }*/
 }

@@ -15,10 +15,20 @@ class PokemonViewModel : ViewModel() {
 
     private fun getMutableList() = _pokemonList.value.orEmpty().toMutableList()
 
-    fun loadPokemons() {
+/*    fun loadPokemons() {
         viewModelScope.launch {
             val newList = pokemonRepository.getPokemonList()
             _pokemonList.value = newList.orEmpty()
+        }
+    }*/
+
+    fun loadAllPokemons() {
+        viewModelScope.launch {
+            val newList = pokemonRepository.getPokemonList()
+            _pokemonList.value = getMutableList().apply {
+                clear()
+                newList?.let { addAll(it) }
+            }
         }
     }
 

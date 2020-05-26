@@ -6,10 +6,10 @@ import com.example.pokedex.pokemon.*
 class PokemonRepository {
     private val pokemonService = Api.pokemonService
 
-    suspend fun getPokemonList(): PokemonResponse<PokemonSpecies?>? {
+    suspend fun getPokemonList(): List<PokemonSpecies>? {
         val pokemonResponse = pokemonService.getAll()
         if (pokemonResponse.isSuccessful) {
-            return pokemonResponse.body()
+            return pokemonResponse.body()?.results
         }
         return null
     }
