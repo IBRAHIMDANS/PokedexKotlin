@@ -25,6 +25,9 @@ data class PokemonSpecies(
     val name: String,
     @field:Json(name = "url")
     val url: String
+    @field:Json(name = "image")
+    val image: String
+//https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/{id}.png
 ) : Serializable, Parcelable
 
 
