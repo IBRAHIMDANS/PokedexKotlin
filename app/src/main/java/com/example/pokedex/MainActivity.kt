@@ -22,7 +22,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pokemons_list)
-        val glide = Glide.with(this)
         lifecycleScope.launch {
             val pokemonInfo = getInfo()
         }
