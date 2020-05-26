@@ -1,15 +1,15 @@
 package com.example.pokedex.pokemon
 
 import com.example.pokedex.network.Api
-import com.example.pokedex.pokemon.PokemonSpecies
+import com.example.pokedex.pokemon.*
 
 class PokemonRepository {
     private val pokemonService = Api.pokemonService
 
-    suspend fun getPokemonList(): List<PokemonSpecies>? {
+    suspend fun getPokemonList(): PokemonResponse<PokemonSpecies?>? {
         val pokemonResponse = pokemonService.getAll()
         if (pokemonResponse.isSuccessful) {
-            return pokemonResponse.body() as List<PokemonSpecies>?
+            return pokemonResponse.body()
         }
         return null
     }

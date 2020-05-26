@@ -26,3 +26,12 @@ data class PokemonSpecies(
     @field:Json(name = "url")
     val url: String
 ) : Serializable, Parcelable
+
+
+data class PokemonResponse<T>(
+    @field:Json(name = "count")
+    val count: Int,
+
+    @field:Json(name = "results")
+    val results: List<T>
+)

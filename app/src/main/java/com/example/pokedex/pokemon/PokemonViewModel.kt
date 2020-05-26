@@ -11,7 +11,7 @@ class PokemonViewModel : ViewModel() {
     private val pokemonRepository = PokemonRepository()
     private val _pokemonInfo = MutableLiveData<List<PokemonInfo>>()
     public val pokemonInfo: LiveData<List<PokemonInfo>> = _pokemonInfo
-    private val _pokemonList = MutableLiveData<List<PokemonSpecies>>()
+    private val _pokemonList = PokemonResponse<PokemonSpecies>()
 
     private fun getMutableList() = _pokemonList.value.orEmpty().toMutableList()
 
