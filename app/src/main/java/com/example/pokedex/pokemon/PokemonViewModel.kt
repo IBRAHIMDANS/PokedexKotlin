@@ -18,10 +18,7 @@ class PokemonViewModel : ViewModel() {
     fun loadPokemons() {
         viewModelScope.launch {
             val newList = pokemonRepository.getPokemonList()
-            _pokemonList.value = getMutableList().apply {
-                clear()
-                newList?.let { addAll(it) }
-            }
+            _pokemonList.value = newList.orEmpty()
         }
     }
 

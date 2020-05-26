@@ -11,26 +11,18 @@ import  com.example.pokedex.pokemon.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val pokemonWebService = Api.pokemonService
-    private val pokemonRepository = PokemonRepository()
 
     private val viewModelTask by lazy {
         ViewModelProvider(this).get(PokemonViewModel::class.java)
     }
 
-    //Liste des pokemons
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pokemons_list)
-        lifecycleScope.launch {
-            val pokemonInfo = getInfo()
-        }
     }
 
-    suspend fun getInfo(): List<PokemonSpecies>? {
-        val tasksResponse = pokemonWebService.getAll()
-        return if (tasksResponse.isSuccessful) {
-            tasksResponse.body()
-        } else null
+    override fun onResume() {
+        super.onResume()
+        viewModelTask.loadPokemons()
     }
 }

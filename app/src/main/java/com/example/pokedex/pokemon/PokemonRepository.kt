@@ -9,7 +9,7 @@ class PokemonRepository {
     suspend fun getPokemonList(): List<PokemonSpecies>? {
         val pokemonResponse = pokemonService.getAll()
         if (pokemonResponse.isSuccessful) {
-            return pokemonResponse.body() as List<PokemonSpecies>
+            return pokemonResponse.body() as List<PokemonSpecies>?
         }
         return null
     }

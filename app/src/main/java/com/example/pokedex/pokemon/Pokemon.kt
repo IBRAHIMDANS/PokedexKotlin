@@ -19,9 +19,10 @@ data class PokemonInfo(
     val height: Int
 ) : Serializable, Parcelable
 
+@Parcelize
 data class PokemonSpecies(
     @field:Json(name = "name")
-    val name: String?,
+    val name: String,
     @field:Json(name = "url")
-    val url: String?
-)
+    val url: String
+) : Serializable, Parcelable
