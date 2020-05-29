@@ -30,13 +30,4 @@ data class PokemonSpecies(
 //https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/{id}.png
 ) : Serializable, Parcelable
 
-
-data class PokemonResponse<T>(
-    @field:Json(name = "count")
-    val count: Int,
-
-    @field:Json(name = "results")
-    val results: List<T>
-)
-
 data class PokeListResponse(@Json(name = "results") val results : List<PokemonSpecies>)

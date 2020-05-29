@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.example.pokedex.network.Api
 import kotlinx.coroutines.launch
 import  com.example.pokedex.pokemon.*
+import kotlinx.android.synthetic.main.activity_pokemons_list.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -21,10 +22,12 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pokemons_list)
-        /*val glide = Glide.with(this)
+
         lifecycleScope.launch {
-            val pokemonInfo = getInfo()
-        }*/
+            val pokemonInfo = viewModelTask.loadAllPokemons()
+            textViewName.text = pokemonInfo.
+            textViewUrl.text = "${userInfo.email}"
+        }
     }
 
     override fun onResume() {
