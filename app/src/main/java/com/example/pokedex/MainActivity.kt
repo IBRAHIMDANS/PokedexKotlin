@@ -1,5 +1,6 @@
 package com.example.pokedex
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.appcompat.app.AppCompatActivity
@@ -11,6 +12,7 @@ import com.example.pokedex.network.Api
 import kotlinx.coroutines.launch
 import  com.example.pokedex.pokemon.*
 import kotlinx.android.synthetic.main.activity_pokemons_list.*
+import java.io.Serializable
 import java.util.ArrayList
 
 class MainActivity : AppCompatActivity() {
@@ -39,6 +41,12 @@ class MainActivity : AppCompatActivity() {
         savedInstanceState?.getParcelableArrayList<PokemonSpecies>("taskList")?.let { savedList ->
             adapter.taskList = savedList
             adapter.notifyDataSetChanged()
+        }
+
+        adapter.onDetailClickListener = { task ->
+            val intent = Intent(applicationContext, DetailsActivity::class.java)
+            intent.putExtra("task", task.name as Serializable)
+            startActivity(intent)
         }
     }
 

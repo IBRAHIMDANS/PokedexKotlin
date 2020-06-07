@@ -4,7 +4,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.pokedex.R
 import kotlinx.android.synthetic.main.activity_main.view.*
 import kotlinx.android.synthetic.main.item_pokemon.view.*
@@ -13,8 +15,7 @@ import kotlin.properties.Delegates
 class PokemonListAdapter  : RecyclerView.Adapter<PokemonListAdapter.TaskViewHolder>() {
 
     // Déclaration d'une lambda comme variable:
-    var onEditClickListener: ((PokemonSpecies) -> Unit)? = null
-    var onDeleteClickListener: ((PokemonSpecies) -> Unit)? = null
+    var onDetailClickListener: ((PokemonSpecies) -> Unit)? = null
 
     var taskList: List<PokemonSpecies> by Delegates.observable(emptyList()) { _, _, _ ->
         notifyDataSetChanged()
@@ -23,8 +24,16 @@ class PokemonListAdapter  : RecyclerView.Adapter<PokemonListAdapter.TaskViewHold
     inner class TaskViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         fun bind(task: PokemonSpecies) {
             // C'est ici qu'on reliera les données et les listeners une fois l'adapteur implémenté
+            val glide = Glide.with(itemView.context)
             itemView.textViewName.text = task.name
             itemView.textViewUrl.text = task.url
+            glide.load(task.image).circleCrop().into(itemView.imgPokemon)
+
+            val pokemonLayout = itemView.findViewById<ConstraintLayout>(R.id.pokemonLayout)
+
+            pokemonLayout.setOnClickListener{
+                onDetailClickListener?.invoke(task)
+            }
         }
     }
 
