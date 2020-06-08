@@ -12,18 +12,48 @@ data class PokemonInfo(
     val id: String?,
     @field:Json(name = "name")
     val name: String,
-    @field:Json(name = "weight")
-    val weight: Int,
     @field:Json(name = "height")
     val height: Int,
     @field:Json(name = "sprites")
-    val sprites: Sprites
+    val sprites: Sprites,
+    @field:Json(name = "stats")
+    val stats: List<Stats>,
+    @field:Json(name = "types")
+    val types: List<Types>,
+    @field:Json(name = "weight")
+    val weight: Int
 ) : Serializable, Parcelable
 
 @Parcelize
 data class Sprites(
     @field:Json(name = "front_default")
     val front_default: String?
+) : Serializable, Parcelable
+
+@Parcelize
+data class Stats(
+    @field:Json(name = "base_stat")
+    val base_stat: String?,
+    @field:Json(name = "effort")
+    val effort: String?,
+    @field:Json(name = "stat")
+    val stat: Stat
+) : Serializable, Parcelable
+
+@Parcelize
+data class Stat(
+    @field:Json(name = "name")
+    val name: String?,
+    @field:Json(name = "url")
+    val url: String?
+) : Serializable, Parcelable
+
+@Parcelize
+data class Types(
+    @field:Json(name = "name")
+    val name: String?,
+    @field:Json(name = "url")
+    val url: String?
 ) : Serializable, Parcelable
 
 @Parcelize

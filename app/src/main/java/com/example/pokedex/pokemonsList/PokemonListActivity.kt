@@ -1,24 +1,24 @@
-package com.example.pokedex
+package com.example.pokedex.pokemonsList
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.bumptech.glide.Glide
+import com.example.pokedex.R
 import com.example.pokedex.network.Api
-import kotlinx.coroutines.launch
 import  com.example.pokedex.pokemon.*
+import com.example.pokedex.pokemonDetails.PokemonActivity
 import kotlinx.android.synthetic.main.activity_pokemons_list.*
 import java.io.Serializable
 import java.util.ArrayList
 
-class MainActivity : AppCompatActivity() {
+class PokemonListActivity : AppCompatActivity() {
 
     private val pokemonWebService = Api.pokemonService
-    private val pokemonRepository = PokemonRepository()
+    private val pokemonRepository =
+        PokemonRepository()
     var adapter = PokemonListAdapter()
 
     private val viewModelTask by lazy {
@@ -34,18 +34,18 @@ class MainActivity : AppCompatActivity() {
 
 
         viewModelTask.pokemonList.observe(this, Observer { newList ->
-            adapter.taskList = newList.orEmpty()
+            adapter.pokemonList = newList.orEmpty()
             adapter.notifyDataSetChanged()
         })
 
-        savedInstanceState?.getParcelableArrayList<PokemonSpecies>("taskList")?.let { savedList ->
-            adapter.taskList = savedList
+        savedInstanceState?.getParcelableArrayList<PokemonSpecies>("pokemonList")?.let { savedList ->
+            adapter.pokemonList = savedList
             adapter.notifyDataSetChanged()
         }
 
         adapter.onDetailClickListener = { task ->
-            val intent = Intent(applicationContext, DetailsActivity::class.java)
-            intent.putExtra("task", task.name as Serializable)
+            val intent = Intent(applicationContext, PokemonActivity::class.java)
+            intent.putExtra("pokemon", task.name as Serializable)
             startActivity(intent)
         }
     }

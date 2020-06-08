@@ -1,4 +1,4 @@
-package com.example.pokedex.pokemon
+package com.example.pokedex.pokemonsList
 
 import com.example.pokedex.network.Api
 import com.example.pokedex.pokemon.*
@@ -13,5 +13,4 @@ class PokemonRepository {
         }
         return null
     }
-
 }

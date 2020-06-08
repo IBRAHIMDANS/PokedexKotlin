@@ -4,31 +4,27 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/pokemonLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:background="#E3E3E3">
 
     <TextView
         android:id="@+id/textViewName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="name"
+        android:layout_marginLeft="16dp"
+        android:layout_marginStart="16dp"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imgPokemon"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewUrl"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:text="url"
-        android:layout_marginTop="27dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgPokemon"
-        app:layout_constraintTop_toBottomOf="@+id/textViewName" />
-
     <ImageView
         android:id="@+id/imgPokemon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
