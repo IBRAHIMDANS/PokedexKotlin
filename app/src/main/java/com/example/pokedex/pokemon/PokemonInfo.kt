@@ -4,6 +4,7 @@ import android.os.Parcelable
 import com.squareup.moshi.Json
 import kotlinx.android.parcel.Parcelize
 import java.io.Serializable
+import java.util.*
 
 @Parcelize
 data class PokemonInfo(
@@ -15,8 +16,14 @@ data class PokemonInfo(
     val weight: Int,
     @field:Json(name = "height")
     val height: Int,
-    @field:Json(name = "sprites/front_default")
-    val front_default: String
+    @field:Json(name = "sprites")
+    val sprites: Sprites
+) : Serializable, Parcelable
+
+@Parcelize
+data class Sprites(
+    @field:Json(name = "front_default")
+    val front_default: String?
 ) : Serializable, Parcelable
 
 @Parcelize

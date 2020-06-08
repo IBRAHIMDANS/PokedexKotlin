@@ -26,10 +26,10 @@ class DetailsActivity : AppCompatActivity() {
             lifecycleScope.launch {
                 val userInfo = Api.pokemonService.getByName(task).body()!!
                 val glide = Glide.with(applicationContext)
-                name.setText(userInfo.name.toString())
+                name.setText(userInfo.name)
                 height.setText(userInfo.weight.toString())
                 weight.setText(userInfo.weight.toString())
-                glide.load(userInfo.front_default).circleCrop().into(imagePokemon)
+                glide.load(userInfo.sprites.front_default).circleCrop().into(imagePokemon)
             }
         }
     }
